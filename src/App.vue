@@ -1,9 +1,6 @@
 <template>
     <div id="app" class="app">
-        <keep-alive>
-            <router-view v-if="$route.meta.keepAlive"></router-view>
-        </keep-alive>
-        <router-view v-if="!$route.meta.keepAlive"></router-view>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -19,26 +16,47 @@ export default {
 }
 </script>
 
-<style scope lang="less">
+<style lang="less">
 * {
     box-sizing: border-box;
     margin: 0;
     border: 0;
 }
-html, body, #app, .app {
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+html,
+body,
+#app,
+.app {
     width: 100%;
     height: 100%;
 }
+
 .full-screen {
     width: 100%;
     height: 100%;
 }
+
 .full-width {
     width: 100%;
 }
+
 .full-height {
     height: 100%;
 }
+
 .flex-box {
     display: flex;
 }

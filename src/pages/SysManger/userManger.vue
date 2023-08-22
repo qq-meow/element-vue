@@ -1,5 +1,5 @@
 <template>
-    <el-container class="list">
+    <el-container class="userMager">
         <el-header>
             <qm-form v-model="form" :formConfig="formConfig"></qm-form>
         </el-header>
@@ -16,7 +16,7 @@
 <script>
 import QmTable from '@/components/commons/QmTable.vue';
 import QmForm from '@/components/commons/QmForm.vue';
-import api from '@/api/list';
+import api from '@/api/userMager';
 // import utils from '@/utils/utils'
 export default {
     name: 'Index',
@@ -46,7 +46,7 @@ export default {
                             value: '女',
                         },
                     ],
-                    span: '4'
+                    span: 4
                 },
                 {
                     type: 'input',
@@ -97,19 +97,19 @@ export default {
                 width: 140,
                 list: [
                     {
-                        text: '编辑',
+                        text: '',
                         icon: 'el-icon-edit',
                         emit: 'on-edit',
                         cb: (e) => {
-                            console.log(e, 'this is ...');
+                            console.log(e, 'this is edit...');
                         },
                     },
                     {
-                        text: '删除',
+                        text: '',
                         icon: 'el-icon-delete',
                         emit: 'on-delete',
                         cb: (e) => {
-                            console.log(e, 'this is ...');
+                            console.log(e, 'this is delete...');
                         },
                     },
                 ],
@@ -126,14 +126,14 @@ export default {
             })
         })
         console.log(new Array(20))
-        // this.getList();
+        // this.getUserMager();
     },
     mounted() {
         console.log('mounted');
     },
     methods: {
-        getList() {
-            api.getList().then((res) => {
+        getUserMager() {
+            api.getUserMager().then((res) => {
                 console.log(res, 'this is res');
             });
         },
@@ -142,9 +142,10 @@ export default {
 </script>
 
 <style lang="less" scope>
-.list {
+.userMager {
     width: 100%;
     height: 100%;
+    background: #fff;
     .el-header {
         border-bottom: 1px solid #ccc;
         display: flex;

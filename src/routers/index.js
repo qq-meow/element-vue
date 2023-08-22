@@ -13,6 +13,7 @@ router.afterEach((to) => {
     store.commit('updateTitle', to.query.title || to.meta.title || '')
 })
 router.beforeEach((to, from, next) => {
+    console.log(to.fullPath)
     if (to.meta.isLogin && (!utils.getStorage('token') || utils.getStorage('token') === 'undefined')) {
         // 根据路由meta标签，判断需要访问的页面是否需要登录
         // const urlHref = encodeURIComponent(window.location.href);
